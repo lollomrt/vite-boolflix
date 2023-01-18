@@ -1,7 +1,7 @@
 <script>
 export default {
     props: {
-        movie: Object
+        serie: Object
     },
     methods: {
         getLenguage(valore) {
@@ -20,24 +20,18 @@ export default {
                 return upperLeng
             }
 
-        },
-        // getStars(valore) {
-        //     let rate = (parseInt(valore.vote_average / 2))
-        //     if (valore.vote_average)
-        //     return rate
-        // }
+        }
     }
 }
 </script>
 
 <template lang="">
     <div class="single-card">
-        <h1>{{ movie.title }}</h1>
-        <span>{{ movie.original_title }}</span>
-        <span>{{ movie.original_language }}</span>
-        <span>{{ getStars(movie) }}</span>
-        <!-- <span>{{ movie.vote_average }}</span> -->
-        <img :src="`https://www.countryflagicons.com/FLAT/64/${getLenguage(movie)}.png`" alt="{{ movie.original_language }}">
+        <h1>{{ serie.name }}</h1>
+        <span>{{ serie.original_name }}</span>
+        <span>{{ serie.original_language }}</span>
+        <span>{{ serie.vote_average }}</span>
+        <img :src="`https://www.countryflagicons.com/FLAT/64/${getLenguage(serie)}.png`" alt="{{ serie.original_language }}">
     </div>
 </template>
 

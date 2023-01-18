@@ -1,7 +1,10 @@
 <script>
+
 export default {
     data() {
-        value: ''
+        return {
+            value: ''
+        }
     }
 }
 
