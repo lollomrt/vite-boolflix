@@ -1,4 +1,8 @@
 //GENERALS
+@use "./partials/variables" as *;
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "@fontsource/roboto";
+
 
 * {
     margin: 0;
@@ -6,6 +10,91 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Roboto, sans-serif;
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    span,
+    p {
+        font-size: 0.8rem;
+    }
+}
+
 .container {
     width: 100%;
+}
+
+.single-card {
+    min-width: 250px;
+    min-height: 400px;
+    background-color: rgb(119, 26, 26);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .img-cover {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .info-content {
+        display: flex;
+        font-size: 1rem;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.8996848739495799) 13%, rgba(220, 219, 209, 0) 100%);
+        color: $secondary-color;
+
+        a {
+            color: $rest-color;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        .container-voto {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .star-container {
+                color: $primary-color;
+                display: flex;
+                align-items: center;
+
+
+                i {
+                    font-size: 0.8rem;
+                    letter-spacing: 0.1rem;
+                }
+            }
+        }
+
+        .lenguage-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            img {
+                width: 30px;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
 }

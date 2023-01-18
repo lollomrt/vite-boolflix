@@ -35,13 +35,23 @@ export default {
 
 <template lang="">
     <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="">
         <AppSearch @buttonClick="getSearch"></AppSearch>
     </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 header {
     height: 75px;
-    background-color: aqua;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+
+    img {
+        width: 70px;
+    }
 }
 </style>
