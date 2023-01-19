@@ -11,6 +11,10 @@ export default {
             store
         }
     },
+    created() {
+        this.getPopularMovie()
+        this.getPopularSeries()
+    },
     methods: {
         getMovie(parametro) {
             let newUrl = store.urlMovie + parametro
@@ -23,11 +27,22 @@ export default {
             let seriesUrl = store.urlSeries + parametro
             axios.get(seriesUrl).then((response) => {
                 store.seriesList = response.data.results
+                this.getActors(id)
             })
         },
         getSearch(parametro) {
             this.getMovie(parametro)
             this.getSerie(parametro)
+        },
+        getPopularMovie() {
+            axios.get(store.urlPopular).then((response) => {
+                store.movieList = response.data.results
+            })
+        },
+        getPopularSeries() {
+            axios.get(store.urlPopularSeries).then((response) => {
+                store.seriesList = response.data.results
+            })
         }
     }
 }
@@ -43,11 +58,14 @@ export default {
 <style lang="scss" scoped>
 header {
     height: 75px;
+    width: 100vw;
     background-color: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 4rem;
+    position: fixed;
+    z-index: 2;
 
 
     img {

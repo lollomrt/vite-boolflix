@@ -2,7 +2,8 @@
 export default {
     data() {
         return {
-            hover: false
+            hover: false,
+            rate: null
         }
     },
     props: {
@@ -27,13 +28,13 @@ export default {
 
         },
         getStars(parametro) {
-            let rate = (Math.floor(parametro.vote_average / 2))
+            this.rate = (Math.floor(parametro.vote_average / 2))
             let rateArray = []
-            for (let i = 0; i < rate; i++) {
+            for (let i = 0; i < this.rate; i++) {
                 rateArray.push('fa-solid fa-star')
             }
 
-            let starEmpty = 5 - rate;
+            let starEmpty = 5 - this.rate;
             for (let i = 0; i < starEmpty; i++) {
                 rateArray.push('fa-regular fa-star');
             }
@@ -45,6 +46,14 @@ export default {
                 return this.movie.overview
             }
             return this.movie.overview
+        },
+        getImage(parametro) {
+            if (parametro.backdrop_path) {
+                return `https://image.tmdb.org/t/p/w780${parametro.backdrop_path}`
+            }
+            else {
+                return `https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80`
+            }
         }
     }
 }
@@ -52,7 +61,7 @@ export default {
 
 <template lang="">
     <div class="single-card" @mouseenter="hover = true" @mouseleave="hover = false">
-        <img class="img-cover" :src="`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`" alt="">
+        <img class="img-cover" :src="getImage(movie)" alt="">
         <div class="info-content" v-if="hover">
             <h1>{{ movie.title }}</h1>
             <span>Titolo originale: {{ movie.original_title }}</span>
@@ -63,7 +72,7 @@ export default {
                 <div class="star-container">               
                 <i v-for="(value, index) in getStars(movie)" :key="index" :class="value"></i>
                 </div>
-                <span>{{ movie.vote_average }}</span>
+                <span>{{ rate }}</span>
             </div> 
             <!-- <span>{{ movie.vote_average }}</span> -->
             <div class="lenguage-container">

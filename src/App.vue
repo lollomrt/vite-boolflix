@@ -31,11 +31,17 @@ export default {
 <template>
   <div>
     <AppHeader />
-    <AppMain />
+    <div class="container-body">
+      <AppMain />
+    </div>
   </div>
 </template>
 
 <style lang="scss">
 @use "./styles/partials/variables" as *;
 @use './styles/generals.scss' as *;
+
+.container-body {
+  padding-top: 75px;
+}
 </style>

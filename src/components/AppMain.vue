@@ -34,16 +34,16 @@ export default {
     </div> -->
     <div class="contents-container">
         <div class="title-container">
-            <h2>I film di Netflix</h2>
-            <select name="" id="">
+            <h2>I film più popolari</h2>
+            <!-- <select name="" id="">
                 <option value="">prova</option>
-            </select>
+            </select> -->
         </div>        
         <div class="movie-container">      
             <MoovieCard v-for="(element, index) in store.movieList" :key="index" :movie="element"></MoovieCard>
         </div>
         <div class="title-container">
-            <h2>Le seire Tv di Netflix</h2>
+            <h2>Le seire Tv più popolari</h2>
         </div>
         <div class="movie-container">
             <seriesCard v-for="(element, index) in store.seriesList" :key="index" :serie="element"></seriesCard>
@@ -84,17 +84,18 @@ export default {
     }
 
     .movie-container {
-        width: 100%;
         display: flex;
         justify-content: flex-between;
-        margin: 0 1rem;
+        margin: 0 0 0 1rem;
         margin-bottom: 2rem;
         overflow-x: scroll;
-
         gap: 0.5rem;
+        -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+        // mask-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 5%, rgba(220, 219, 209, 0) 100%);
 
         &::-webkit-scrollbar {
             height: 0.3rem;
+            max-width: 10px;
             margin: 5rem;
         }
 
@@ -107,10 +108,9 @@ export default {
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: $primary-color;
-            width: 10px;
+            max-width: 10px;
             height: 10px;
             border-radius: 20px;
-            height: 0.3rem;
 
         }
 
@@ -119,6 +119,7 @@ export default {
             background: $primary-color;
 
         }
+
     }
 }
 </style>

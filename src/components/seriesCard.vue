@@ -45,6 +45,14 @@ export default {
                 return this.serie.overview
             }
             return this.serie.overview
+        },
+        getImage(parametro) {
+            if (parametro.backdrop_path) {
+                return `https://image.tmdb.org/t/p/w780${parametro.backdrop_path}`
+            }
+            else {
+                return `https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80`
+            }
         }
     }
 }
@@ -52,7 +60,7 @@ export default {
 
 <template lang="">
     <div class="single-card" @mouseenter="hover = true" @mouseleave="hover = false">
-        <img class="img-cover" :src="`https://image.tmdb.org/t/p/w780${serie.backdrop_path}`" alt="">
+        <img class="img-cover" :src="getImage(serie)">
         <div class="info-content" v-if="hover">
             <h1>{{ serie.name }}</h1>
             <span>Titolo originale: {{ serie.original_name }}</span>
