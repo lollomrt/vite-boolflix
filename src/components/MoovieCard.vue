@@ -55,7 +55,7 @@ export default {
         <img class="img-cover" :src="`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`" alt="">
         <div class="info-content" v-if="hover">
             <h1>{{ movie.title }}</h1>
-            <span>{{ movie.original_title }}</span>
+            <span>Titolo originale: {{ movie.original_title }}</span>
             <p>{{ descriptionCut() }} <a href="#">approfondisci</a></p>
             <!-- <span>{{ movie.original_language }}</span> -->
             <div class="container-voto">

@@ -33,11 +33,18 @@ export default {
         <AppSearch @buttonClick="getMovie"></AppSearch>
     </div> -->
     <div class="contents-container">
-        <h2>I film di Netflix</h2> 
+        <div class="title-container">
+            <h2>I film di Netflix</h2>
+            <select name="" id="">
+                <option value="">prova</option>
+            </select>
+        </div>        
         <div class="movie-container">      
             <MoovieCard v-for="(element, index) in store.movieList" :key="index" :movie="element"></MoovieCard>
         </div>
-        <h2>Le seire Tv di Netflix</h2>
+        <div class="title-container">
+            <h2>Le seire Tv di Netflix</h2>
+        </div>
         <div class="movie-container">
             <seriesCard v-for="(element, index) in store.seriesList" :key="index" :serie="element"></seriesCard>
         </div>
@@ -50,25 +57,45 @@ export default {
 
 .contents-container {
     background-color: $dark;
+    padding: 0 0 0 3rem;
     width: 100%;
 
-    h2 {
-        color: $secondary-color;
-        padding: 2rem 1rem;
+    .title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5rem 1rem 0;
+
+        select {
+            width: 30%;
+            background-color: $secondary-color;
+            border: none;
+            border-radius: 20px;
+            padding: 0.1rem 1rem;
+        }
+
+        h2 {
+            color: $secondary-color;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+        }
+
     }
 
     .movie-container {
         width: 100%;
         display: flex;
         justify-content: flex-between;
-        padding: 1rem;
+        margin: 0 1rem;
+        margin-bottom: 2rem;
         overflow-x: scroll;
 
         gap: 0.5rem;
 
         &::-webkit-scrollbar {
-            height: 0.5rem;
-            width: 20vw;
+            height: 0.3rem;
+            margin: 5rem;
         }
 
         /* Track */
@@ -80,15 +107,16 @@ export default {
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: $primary-color;
-            width: 100px;
-            height: 100px;
+            width: 10px;
+            height: 10px;
             border-radius: 20px;
+            height: 0.3rem;
 
         }
 
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            background: $primary-color;
 
         }
     }
