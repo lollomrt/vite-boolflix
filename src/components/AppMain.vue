@@ -38,12 +38,14 @@ export default {
             <!-- <select name="" id="">
                 <option value="">prova</option>
             </select> -->
+            <h2>trovati: {{ store.movieList.length }} film</h2>
         </div>        
         <div class="movie-container">      
             <MoovieCard v-for="(element, index) in store.movieList" :key="index" :movie="element"></MoovieCard>
         </div>
         <div class="title-container">
             <h2>Le seire Tv più popolari</h2>
+            <h2>trovate: {{ store.seriesList.length }} serie Tv</h2>
         </div>
         <div class="movie-container">
             <seriesCard v-for="(element, index) in store.seriesList" :key="index" :serie="element"></seriesCard>
@@ -64,7 +66,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 5rem 1rem 0;
+        padding: 1rem 3rem 1rem 0;
 
         select {
             width: 30%;
