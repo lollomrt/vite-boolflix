@@ -116,12 +116,6 @@ export default {
 
         }
 
-        /* Handle on hover */
-        &::-webkit-scrollbar-thumb:hover {
-            background: $primary-color;
-
-        }
-
     }
 }
 </style>
